@@ -10,7 +10,7 @@ jobs:
         env:
             RAMA: ${GITHUB_REF_NAME}
         run: |
-          if [[ "$RAMA" == "master" ]];
+          if [[ "$RAMA" = "master" ]];
           then
             echo running on branch ${GITHUB_REF_NAME}
           else
