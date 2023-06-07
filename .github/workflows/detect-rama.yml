@@ -8,4 +8,4 @@ jobs:
     steps:
       - name: Obteniendo datos
         run: |
-          echo "$GITHUB_REF_NAME will serve the internal behavior of GitHub Action"
+          echo "${{ env.GITHUB_REF_NAME }} will serve the behavior of the GitHub Slug action"
