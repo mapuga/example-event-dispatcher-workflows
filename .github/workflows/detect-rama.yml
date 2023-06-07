@@ -7,7 +7,6 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: Obteniendo datos
-        env:
-          BRANCH: ${{env.GITHUB_REF_NAME}}
         run: |
-          echo "$BRANCH"
+          echo running on branch ${GITHUB_REF##*/} ${GITHUB_REF}
+
