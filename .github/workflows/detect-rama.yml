@@ -7,5 +7,7 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: Obteniendo datos
+        env:
+          BRANCH: ${{env.GITHUB_REF_NAME}}
         run: |
-          echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_OUTPUT
+          echo "$BRANCH"
