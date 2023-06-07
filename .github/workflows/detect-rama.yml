@@ -1,0 +1,13 @@
+name: Deploy Ambiente X
+env:
+  RAMA_ACTIVA: $GITHUB_REF_NAME
+on:
+  repository_dispatch:
+    types: [run-jira-deploy]
+jobs:
+  ping:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Obteniendo datos
+        run: |
+          echo "Rama $RAMA_ACTIVA"
