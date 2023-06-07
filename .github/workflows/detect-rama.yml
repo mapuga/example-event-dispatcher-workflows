@@ -5,9 +5,9 @@ on:
   repository_dispatch:
     types: [run-jira-deploy]
 jobs:
-  ping:
+  deploy-qa:
     runs-on: ubuntu-20.04
     steps:
       - name: Obteniendo datos
         run: |
-          echo "Rama $RAMA_ACTIVA"
+          echo "Rama ${RAMA_ACTIVA}"
