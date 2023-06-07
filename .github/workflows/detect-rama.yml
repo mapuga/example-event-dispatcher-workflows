@@ -8,5 +8,5 @@ jobs:
     steps:
       - name: Obteniendo datos
         run: |
-          echo running on branch ${GITHUB_REF##*/} ${GITHUB_REF}
+          echo running on branch ${GITHUB_REF##*/}
 
