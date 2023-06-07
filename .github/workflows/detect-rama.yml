@@ -7,10 +7,8 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: Obteniendo datos
-        env:
-            RAMA: ${GITHUB_REF_NAME}
         run: |
-          if [[ "$RAMA" = "master" ]];
+          if [[ "${GITHUB_REF_NAME}" = "master" ]];
           then
             echo running on branch ${GITHUB_REF_NAME}
           else
