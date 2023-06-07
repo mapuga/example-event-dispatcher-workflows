@@ -1,4 +1,6 @@
 name: Deploy Ambiente X
+env:
+    RAMA_ACTUAL: ${{ env.GITHUB_REF_NAME }}
 on:
   repository_dispatch:
     types: [run-jira-deploy]
@@ -8,4 +10,4 @@ jobs:
     steps:
       - name: Obteniendo datos
         run: |
-          echo "${{ env.GITHUB_REF_NAME }} will serve the behavior of the GitHub Slug action"
+          echo "$RAMA_ACTUAL will serve the behavior of the GitHub Slug action"
