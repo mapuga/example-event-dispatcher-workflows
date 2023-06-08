@@ -14,15 +14,15 @@ jobs:
           else
             echo No esta en la rama QA
           fi
-    deploy-uat:
+  deploy-uat:
     runs-on: ubuntu-20.04
     steps:
-        - name: Obteniendo datos UAT
+      - name: Obteniendo datos UAT
         run: |
-            if [[ "${GITHUB_REF_NAME}" = "master" ]];
-            then
+          if [[ "${GITHUB_REF_NAME}" = "master" ]];
+          then
             echo running on branch ${GITHUB_REF_NAME}
-            else
+          else
             echo No esta en la rama UAT
-            fi
+          fi
 
