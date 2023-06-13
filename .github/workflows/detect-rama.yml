@@ -5,24 +5,15 @@ on:
 jobs:
   deploy-qa:
     runs-on: ubuntu-20.04
+    environment: ${{ github.event.client_payload.env }}
     steps:
       - name: Obteniendo datos QA
         run: |
           if [[ "${GITHUB_REF_NAME}" = "master" ]];
           then
             echo running on branch ${GITHUB_REF_NAME}
+            echo el comando es ${{ github.event.client_payload.command }}
           else
             echo No esta en la rama QA
-          fi
-  deploy-uat:
-    runs-on: ubuntu-20.04
-    steps:
-      - name: Obteniendo datos UAT
-        run: |
-          if [[ "${GITHUB_REF_NAME}" = "master" ]];
-          then
-            echo running on branch ${GITHUB_REF_NAME}
-          else
-            echo No esta en la rama UAT
           fi
 
