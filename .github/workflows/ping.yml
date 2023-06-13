@@ -4,6 +4,8 @@ env:
   REPO_NAME: example-event-dispatcher-workflows
   GITHUB_TOKEN: ${{ secrets.TOKEN }}
 on:
+  repository_dispatch:
+    types: [run-ping]
   workflow_call:
     inputs:
       config-path:
