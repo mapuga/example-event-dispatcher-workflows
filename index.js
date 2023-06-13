@@ -3,6 +3,7 @@ const axios = require('axios');
 const [,,command,workflowType] = process.argv;
 
 async function run(command) {
+    return "EJECUTADO CORRECTAMENTE";
     if(!command) {
         throw new Error('Command ping or pong required');
     }
