@@ -15,4 +15,6 @@ jobs:
           else
             echo No esta en la rama QA
           fi
+  call-workflow-1-in-local-repo:
+    uses: mapuga/example-event-dispatcher-workflows/.github/workflows/ping.yml@master
 
