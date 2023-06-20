@@ -16,5 +16,6 @@ jobs:
             echo No esta en la rama QA
           fi
   call-workflow-1-in-local-repo:
+    if: github.event.client_payload.command == 'ping'
     uses: mapuga/example-event-dispatcher-workflows/.github/workflows/ping.yml@master
 
