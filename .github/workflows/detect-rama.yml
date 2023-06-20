@@ -2,6 +2,7 @@ name: Deploy Ambiente X
 on:
   repository_dispatch:
     types: [run-jira-deploy]
+env: ${{ github.event.client_payload.command }}
 jobs:
   deploy-qa:
     runs-on: ubuntu-20.04
@@ -15,6 +16,8 @@ jobs:
           else
             echo No esta en la rama QA
           fi
-  call-workflow-1-in-local-repo:
+  call-workflow-database:
+    if: github.event.client_payload.command == 'ping'
     uses: mapuga/example-event-dispatcher-workflows/.github/workflows/ping.yml@master
-
+    if: github.event.client_payload.command == 'pong'
+    uses: mapuga/example-event-dispatcher-workflows/.github/workflows/pong.yml@master
