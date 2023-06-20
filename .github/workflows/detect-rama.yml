@@ -2,7 +2,6 @@ name: Deploy Ambiente X
 on:
   repository_dispatch:
     types: [run-jira-deploy]
-env: ${{ github.event.client_payload.command }}
 jobs:
   deploy-qa:
     runs-on: ubuntu-20.04
