@@ -1,12 +1,12 @@
 name: Deploy Ambiente X
-on:
-  repository_dispatch:
-    types: [run-jira-deploy]
 env:
   APPLICATIONS: ${{github.event.client_payload.command}}
   APP_i365: "i365"
+on:
+  repository_dispatch:
+    types: [run-jira-deploy]
 jobs:
-  deploy-qa:
+  setting-data:
     runs-on: ubuntu-20.04
     steps:
       - name: Obteniendo instrucciones
@@ -19,7 +19,7 @@ jobs:
               echo "APP_i365=i365" >> "$GITHUB_ENV"
             fi
           done
-  call-workflow-1-in-local-repo:
+  call-workflow-i365:
     if: github.env.APP_i365 == 'i365'
     uses: mapuga/example-event-dispatcher-workflows/.github/workflows/ping.yml@master
 
