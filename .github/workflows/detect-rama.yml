@@ -19,7 +19,7 @@ jobs:
             fi
           done
       - name: Set variables
-        run: echo "APP_i365" >> $GITHUB_ENV
+        run: echo $APP_i365
   call-workflow-i365:
     if: github.env.APP_i365 == 'i365'
     uses: mapuga/example-event-dispatcher-workflows/.github/workflows/ping.yml@master
