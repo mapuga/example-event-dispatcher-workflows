@@ -4,7 +4,7 @@ on:
     types: [run-jira-deploy]
 env:
   APPLICATIONS: ${{github.event.client_payload.command}}
-  APP_i365: ""
+  APP_i365: "i365"
 jobs:
   deploy-qa:
     runs-on: ubuntu-20.04
