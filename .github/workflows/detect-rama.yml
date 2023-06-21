@@ -15,7 +15,8 @@ jobs:
     steps:
       - name: Obteniendo datos QA
         run: |
-          for i in $APPLICATIONS
+          STR_APPS=$(echo $APPLICATIONS | sed 's/,/""/g')
+          for i in $STR_APPS
           do
             echo $i
           done
