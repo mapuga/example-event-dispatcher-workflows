@@ -20,10 +20,9 @@ jobs:
           do
             if($i == "i365")
             then
-              env.APP_i365=$i
+              echo "detecto i365"
             fi
           done
-          echo $APP_i365
   call-workflow-1-in-local-repo:
     if: github.event.client_payload.command == 'ping'
     uses: mapuga/example-event-dispatcher-workflows/.github/workflows/ping.yml@master
