@@ -4,11 +4,6 @@ on:
     types: [run-jira-deploy]
 env:
   APPLICATIONS: ${{github.event.client_payload.command}}
-  APP_i365: ""
-  APP_API: ""
-  APP_SABE2: ""
-  APP_SABE3: ""
-  DATABASE: ""
 jobs:
   deploy-qa:
     runs-on: ubuntu-20.04
@@ -20,7 +15,7 @@ jobs:
           do
             if [ $i == "i365" ]
             then
-              github.env.APP_i365="i365"
+              echo "APP_i365=i365" >> "$GITHUB_ENV"
             fi
           done
   call-workflow-1-in-local-repo:
