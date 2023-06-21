@@ -15,11 +15,9 @@ jobs:
           do
             if [ $i == "i365" ]
             then
-              echo "APP_i365=i365" >> "$GITHUB_ENV"
+              export "APP_i365=i365"
             fi
           done
-      - name: Set variables
-        run: echo ${{github.env.APP_i365}}
   call-workflow-i365:
     if: github.env.APP_i365 == 'i365'
     uses: mapuga/example-event-dispatcher-workflows/.github/workflows/ping.yml@master
