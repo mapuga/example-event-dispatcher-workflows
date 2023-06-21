@@ -18,7 +18,7 @@ jobs:
           STR_APPS=$(echo $APPLICATIONS | sed 's/,//g')
           for i in $STR_APPS
           do
-            if[ "$i" == "i365" ]
+            if[ $i == "i365" ]
             then
               echo "detecto i365"
             fi
