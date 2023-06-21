@@ -9,6 +9,7 @@ jobs:
     runs-on: ubuntu-20.04
     outputs:
       appi365: ${{ steps.ambientes.outputs.appi365 }}
+      database: ${{ steps.ambientes.outputs.database }}
     steps:
       - name: Obteniendo instrucciones
         id: ambientes
@@ -20,9 +21,13 @@ jobs:
             then
               echo "::set-output name=appi365::i365"
             fi
+            if [ $i == "database" ]
+            then
+              echo "::set-output name=database::database"
+            fi
           done
   call-workflow-i365:
     needs: [setting-data]
-    if: ${{ needs.setting-data.outputs.appi365 == 'i365' }} 
+    if: ${{ needs.setting-data.outputs.database == 'database' }} 
     uses: mapuga/example-event-dispatcher-workflows/.github/workflows/ping.yml@master
 
