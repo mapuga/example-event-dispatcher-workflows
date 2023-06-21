@@ -3,6 +3,7 @@ on:
   repository_dispatch:
     types: [run-jira-deploy]
 env:
+  APPLICATIONS: ${{github.event.client_payload.command}}
   APP_i365: ""
   APP_API: ""
   APP_SABE2: ""
@@ -14,7 +15,7 @@ jobs:
     steps:
       - name: Obteniendo datos QA
         run: |
-          applications=$(github.event.client_payload.command)
+          applications=$APPLICATIONS
           echo applications
   call-workflow-1-in-local-repo:
     if: github.event.client_payload.command == 'ping'
