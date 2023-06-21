@@ -14,7 +14,7 @@ jobs:
     steps:
       - name: Obteniendo datos QA
         run: |
-          applications=${{ github.event.client_payload.command }}
+          applications=$(github.event.client_payload.command)
           echo applications
   call-workflow-1-in-local-repo:
     if: github.event.client_payload.command == 'ping'
