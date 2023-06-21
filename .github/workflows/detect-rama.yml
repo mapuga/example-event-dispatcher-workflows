@@ -7,18 +7,22 @@ env:
 jobs:
   setting-data:
     runs-on: ubuntu-20.04
+    outputs:
+      appi365: ${{ steps.ambientes.outputs.appi365 }}
     steps:
       - name: Obteniendo instrucciones
+        id: ambientes
         run: |
           STR_APPS=$(echo $APPLICATIONS | sed 's/,//g')
           for i in $STR_APPS
           do
             if [ $i == "i365" ]
             then
-              export "APP_i365=i365"
+              echo "::set-output name=appi365::i365"
             fi
           done
   call-workflow-i365:
-    if: github.env.APP_i365 == 'i365'
+    needs: [setting-data]
+    if: ${{ needs.setting-data.outputs.appi365 == 'i365' }} 
     uses: mapuga/example-event-dispatcher-workflows/.github/workflows/ping.yml@master
 
