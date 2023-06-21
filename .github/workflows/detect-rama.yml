@@ -15,7 +15,7 @@ jobs:
           do
             if [ $i == "i365" ]
             then
-              echo "APP_i365=i365" >> "$GITHUB_ENV"
+              echo "APP_i365=i365"
             fi
           done
       - name: Set variables
