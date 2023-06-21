@@ -20,6 +20,6 @@ jobs:
             fi
           done
   call-workflow-1-in-local-repo:
-    if: ${{ github.env.APP_i365 == 'i365' }}
+    if: github.env.APP_i365 == 'i365'
     uses: mapuga/example-event-dispatcher-workflows/.github/workflows/ping.yml@master
 
