@@ -15,8 +15,7 @@ jobs:
       - name: Obteniendo datos QA
         run: |
           applications=${{ github.event.client_payload.command }}
-          applications_aps=$("$applications" | tr ',' '')
-          echo applications_aps
+          echo applications
   call-workflow-1-in-local-repo:
     if: github.event.client_payload.command == 'ping'
     uses: mapuga/example-event-dispatcher-workflows/.github/workflows/ping.yml@master
