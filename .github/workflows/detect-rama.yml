@@ -21,9 +21,9 @@ jobs:
             then
               echo "appi365=i365" >> $GITHUB_OUTPUT
             fi
-            if [ $i == "database" ]
+            if [ $i == "DB" ]
             then
-              echo "::set-output name=database::database"
+              echo "database=DB" >> $GITHUB_OUTPUT
             fi
           done
   call-workflow-i365:
