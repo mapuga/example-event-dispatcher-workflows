@@ -19,7 +19,7 @@ jobs:
           do
             if [ $i == "i365" ]
             then
-              echo "::set-output name=appi365::i365"
+              echo "appi365=i365" >> $GITHUB_OUTPUT
             fi
             if [ $i == "database" ]
             then
