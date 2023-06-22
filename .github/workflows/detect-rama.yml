@@ -28,6 +28,6 @@ jobs:
           done
   call-workflow-i365:
     needs: [setting-data]
-    if: ${{ needs.setting-data.outputs.database == 'database' }} 
+    if: ${{ needs.setting-data.outputs.database == 'DB' }} 
     uses: mapuga/example-event-dispatcher-workflows/.github/workflows/ping.yml@master
 
